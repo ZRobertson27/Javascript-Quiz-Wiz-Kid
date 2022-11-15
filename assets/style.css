@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    
+    flex-wrap:wrap;
+}
+
+.container {
+    width:100vw;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.highscoreButton {
+    display:flex;
+    justify-content: flex-start;
+}
+
+.timer {
+    display: block;
+    margin-left:50%;
+    margin-right:50%;
+}
+
+#quizContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    width: 100%;
+}
+
+#question {
+    margin-left:50%;
+    margin-right:50%;
+}
+
+#answer-buttons {
+    width:
+}
+
+.button {
+    display: block;
+    width: 80%;
+    padding:10px;
+    margin:5px;
+    
+}
