@@ -8,6 +8,7 @@ let timerEl = document.getElementById('countdown')
 let htmlQuestion = document.getElementById('question')
 let question
 let button
+let timeLeft
 let answerButtons = document.getElementById('answer-buttons')
 let questions = [
     {
@@ -60,7 +61,7 @@ function startQuiz() {
 }
 // Time counts down from 75 seconds to 1 second. Stops at 0.
 function startTimer() {
-    var timeLeft = 75;
+     timeLeft = 75;
 
     var timeInterval = setInterval(function () {
         if (timeLeft > 1) {
@@ -101,7 +102,8 @@ function theQuestion(question) {
     })
 }
 
-function chooseAnswer(e) {
+function chooseAnswer(button) {
+    
     console.log("Answer selected");
     //Button value isn't staying consistent?
     console.log(button.value);
