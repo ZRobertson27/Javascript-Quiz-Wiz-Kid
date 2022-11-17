@@ -1,8 +1,13 @@
+let b1 = document.getElementById('b1')
+let b2 = document.getElementById('b2')
+let b3 = document.getElementById('b3')
+let b4 = document.getElementById('b4')
 let goButton = document.getElementById('goButton')
 let quizContainer = document.getElementById('quizContainer')
 let timerEl = document.getElementById('countdown')
 let htmlQuestion = document.getElementById('question')
 let question
+let button
 let answerButtons = document.getElementById('answer-buttons')
 let questions = [
     {
@@ -38,34 +43,6 @@ let questions = [
             {text: 'boolean', correct: false},
             {text: 'string', correct: false}
         ]
-    },
-    {
-        question: "Aaaaaaaaaaaaaaaaaaaaaaaaaa",
-        answers: [
-            {text: '', correct:"" },
-            {text: '', correct: ""}
-        ]
-    },
-    {
-        question: "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-        answers: [
-            {text: '', correct: ""},
-            {text: '', correct: ""}
-        ]
-    },
-    {
-        question: "Aaaaaaaaaaaaaaaaaaaaaaaaaa",
-        answers: [
-            {text: '', correct: ""},
-            {text: '', correct: ""}
-        ]
-    },
-    {
-        question:   "Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"     ,
-        answers: [
-            {text: '', correct: ""},
-            {text: '', correct: ""}
-        ]
     }
 ]
 
@@ -99,27 +76,40 @@ function startTimer() {
 }
 
 function showNextQuestion() {
+    clearQuestion()
     theQuestion(randomQuestion[currentQuestion])
+}
+
+function clearQuestion() {
+    htmlQuestion.innerText = ""
+    b1.classList.add('hide')
+    b2.classList.add('hide')
+    b3.classList.add('hide')
+    b4.classList.add('hide')
 }
 
 function theQuestion(question) {
     htmlQuestion.innerText = question.question
     question.answers.forEach(answers => {
-        let button = document.createElement('button')
+        button = document.createElement('button')
         button.innerText = answers.text
+        button.value = answers.correct
         button.classList.add('button')
-        if (answers.correct) {
-            button.dataset.correct = answers.correct
-        }
         button.addEventListener('click', chooseAnswer)
         answerButtons.appendChild(button);
+        console.log(button.value);
     })
 }
 
 function chooseAnswer(e) {
     console.log("Answer selected");
-    if (answers.correct) {
-        console.log("Wrong");
+    //Button value isn't staying consistent?
+    console.log(button.value);
+    if (!button.value) {
+        timeLeft -= 5
+        showNextQuestion;
+    } else {
+        showNextQuestion;
     }
 }
 
